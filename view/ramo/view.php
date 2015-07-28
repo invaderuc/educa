@@ -54,6 +54,7 @@
                     <li><a data-toggle="tab" href="#tab2">Profesor</a></li>
                     <li><a data-toggle="tab" href="#tab3">Horario</a></li>
                     <li><a data-toggle="tab" href="#tab4">Prueba</a></li>
+                    <li><a data-toggle="tab" href="#unidades">Unidades</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -106,7 +107,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar profesor</a>"); ?>
+                                <?php echo ("<a type=\"button\" href=\"../../view/imparte/add.php?id=$id\" class=\"btn btn-default\">Agregar profesor</a>"); ?>
                             </div>
                         </div>
                     </div>
@@ -159,6 +160,27 @@
                       <h3>Menu 2</h3>
                       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                     </div>
+
+                    <div id="unidades" class="tab-pane fade">
+                        <h3>Unidades a revisar en este curso</h3>
+                                <div class="panel panel-default">
+                                      <!-- Default panel contents -->
+                                      <div class="panel-heading">Panel heading</div>
+                                      <div class="panel-body">
+                                        <p>...</p>
+                                      </div>
+
+                                      <!-- List group -->
+                                      <ul class="list-group">
+                                        <li class="list-group-item">Cras justo odio</li>
+                                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                                        <li class="list-group-item">Morbi leo risus</li>
+                                        <li class="list-group-item">Porta ac consectetur ac</li>
+                                        <li class="list-group-item">Vestibulum at eros</li>
+                                      </ul>
+                                </div>
+
+                </div>
 
                 </div>
             </div>
