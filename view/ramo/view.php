@@ -49,121 +49,118 @@
         <div class="col-sm-9">
             
             <div class="container">
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#tab1">Información</a></li>
-                <li><a data-toggle="tab" href="#tab2">Profesor</a></li>
-                <li><a data-toggle="tab" href="#tab3">Horario</a></li>
-                <li><a data-toggle="tab" href="#tab4">Prueba</a></li>
-              </ul>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab1">Información</a></li>
+                    <li><a data-toggle="tab" href="#tab2">Profesor</a></li>
+                    <li><a data-toggle="tab" href="#tab3">Horario</a></li>
+                    <li><a data-toggle="tab" href="#tab4">Prueba</a></li>
+                </ul>
 
-            <div class="tab-content">
-                <div id="tab1" class="tab-pane fade in active">
-                    <div class="col-sm-9">
-                        <br>                
-                        <label>RUT: <?php echo $ramo?></label><br/>  
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane fade in active">
+                        <div class="col-sm-9">
+                            <br>                
+                            <label>RUT: <?php echo $ramo?></label><br/>  
 
-                        <label>Nombre: <?php echo $nombre?></label><br/>
+                            <label>Nombre: <?php echo $nombre?></label><br/>
 
-                        <label>Curso: <?php echo $curso?></label><br/>
-                        
-                    </div>      
-                </div>
+                            <label>Curso: <?php echo $curso?></label><br/>
+                        </div>      
+                    </div>
 
-                <div id="tab2" class="tab-pane fade">
-                    <div class="col-sm-9">  
-                        <div class="table-responsive">
-                            <br>
-                            <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th>Profesor</th>
-                                    <th>Funciones</th>
-                                  </tr>
-                                 </thead>
-                                <tbody>
-                                    <tr>                   
-                                        <?php
-                                            $consulta2=("SELECT * FROM `imparte` where RAM_ID = $id");
-                                            if ($resultado2 = $db->query($consulta2)) {
-                                                while ($fila2 = $resultado2->fetch_array()) {   
-                                                        $id_ramo=$fila2['HOR_ID'];         
-                                                        $inicio=$fila2['HOR_INICIO'];
-                                                        $final=$fila2['HOR_FINAL'];
-                                                        $dia=$fila2['HOR_DIA'];  
-                                                        echo "<tr>";
-                                                echo("<th>$dia</th>");
-                                                echo("<th>$inicio</th>");
-                                                echo("<th>$final</th>");                             
-                                                echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-edit\">
-                                                </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-remove-circle\">
-                                                </span></a></td>";
-                                                echo "</tr>";    
-                                                }
-                                                /* liberar el conjunto de resultados */
-                                                 
-                                                $resultado2->close();
-                                            } 
-                                            $db->close();
-                                        ?>   
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar profesor</a>"); ?>
+                    <div id="tab2" class="tab-pane fade">
+                        <div class="col-sm-9">  
+                            <div class="table-responsive">
+                                <br>
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th>Profesor</th>
+                                        <th>Funciones</th>
+                                      </tr>
+                                     </thead>
+                                    <tbody>
+                                        <tr>                   
+                                            <?php
+                                                $consulta2=("SELECT * FROM `imparte` where RAM_ID = $id");
+                                                if ($resultado2 = $db->query($consulta2)) {
+                                                    while ($fila2 = $resultado2->fetch_array()) {   
+                                                            $id_ramo=$fila2['HOR_ID'];         
+                                                            $inicio=$fila2['HOR_INICIO'];
+                                                            $final=$fila2['HOR_FINAL'];
+                                                            $dia=$fila2['HOR_DIA'];  
+                                                            echo "<tr>";
+                                                    echo("<th>$dia</th>");
+                                                    echo("<th>$inicio</th>");
+                                                    echo("<th>$final</th>");                             
+                                                    echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-edit\">
+                                                    </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-remove-circle\">
+                                                    </span></a></td>";
+                                                    echo "</tr>";    
+                                                    }
+                                                    /* liberar el conjunto de resultados */
+                                                     
+                                                    $resultado2->close();
+                                                } 
+                                            ?>   
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar profesor</a>"); ?>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div id="tab3" class="tab-pane fade">
-                    <div class="col-sm-9">  
-                    
-                    <div class="table-responsive">
-                        <br>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Día</th>
-                                    <th>Inicio</th>
-                                    <th>Final</th>
-                                    <th>Funciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>                   
-                                    <?php
-                                        $consulta2=("SELECT * FROM `horario` where RAM_ID = $id");
-                                        if ($resultado2 = $db->query($consulta2)) {
-                                            while ($fila2 = $resultado2->fetch_array()) {   
-                                                    $id_ramo=$fila2['HOR_ID'];         
-                                                    $inicio=$fila2['HOR_INICIO'];
-                                                    $final=$fila2['HOR_FINAL'];
-                                                    $dia=$fila2['HOR_DIA'];  
-                                                    echo "<tr>";
-                                            echo("<th>$dia</th>");
-                                            echo("<th>$inicio</th>");
-                                            echo("<th>$final</th>");                             
-                                            echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-edit\">
-                                            </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-remove-circle\">
-                                            </span></a></td>";
-                                            echo "</tr>";    
-                                            } 
-                                            $resultado2->close();
-                                        } 
-                                        $db->close();
-                                    ?>   
-                                </tr>
-                            </tbody>
-                        </table>
-            
-                        <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar horario</a>"); ?>
+                    <div id="tab3" class="tab-pane fade">
+                        <div class="col-sm-9">  
+                            <div class="table-responsive">
+                                <br>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Día</th>
+                                            <th>Inicio</th>
+                                            <th>Final</th>
+                                            <th>Funciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>                   
+                                            <?php
+                                                $consulta3=("SELECT * FROM `horario` where RAM_ID = $id");
+                                                if ($resultado3 = $db->query($consulta3)) {
+                                                    while ($fila3 = $resultado3->fetch_array()) {   
+                                                            $id_ramo=$fila3['HOR_ID'];         
+                                                            $inicio=$fila3['HOR_INICIO'];
+                                                            $final=$fila3['HOR_FINAL'];
+                                                            $dia=$fila3['HOR_DIA'];  
+                                                            echo "<tr>";
+                                                    echo("<th>$dia</th>");
+                                                    echo("<th>$inicio</th>");
+                                                    echo("<th>$final</th>");                             
+                                                    echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-edit\">
+                                                    </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-remove-circle\">
+                                                    </span></a></td>";
+                                                    echo "</tr>";    
+                                                    } 
+                                                    $resultado3->close();
+                                                } 
+                                                $db->close();
+                                            ?>   
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar horario</a>"); ?>
+                            </div>
+                        </div>   
                     </div>
-                </div>   
-                </div>
 
-                <div id="tab4" class="tab-pane fade">
-                  <h3>Menu 2</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    <div id="tab4" class="tab-pane fade">
+                      <h3>Menu 2</h3>
+                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+
                 </div>
-              </div>
             </div>
         </div>
     </div>
