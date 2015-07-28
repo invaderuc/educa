@@ -7,5 +7,5 @@
 	
 	$query = ("UPDATE horario SET HOR_DIA='$dia', HOR_INICIO ='$inicio', HOR_FINAL ='$final' WHERE HOR_ID = '$id'");
   	mysqli_real_query($db,$query);
-   	//header("Location: ../../view/ramo/index.php");
+   	header("Location: ../../view/ramo/view.php?id=$id");
 ?>

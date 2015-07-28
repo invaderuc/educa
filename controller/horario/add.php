@@ -5,15 +5,9 @@
 	$fin = $_POST["inputfin"];
 	$dia = $_POST["inputdia"];
 	
-	//echo $per_ver_correo;
-
-	//formato fecha americana
-	//$nac=date("Y-m-d",strtotime($per_nac))
-	
 	$query = ("INSERT INTO horario (`RAM_ID`, `HOR_DIA`, `HOR_INICIO`, `HOR_FINAL`) VALUES ('$id','$dia','$inicio','$fin')");
 
-	
   	mysqli_real_query($db,$query);
-   	header("Location: ../../view/horario/add.php?id=$id");
+   	header("Location: ../../view/ramo/view.php?id=$id");
 	
 ?>

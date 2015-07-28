@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Escuela</title>
-
     <!-- Bootstrap Core CSS -->
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -20,8 +19,24 @@
     </style>
 </head>
 
-<body>
+<?php        
+    include("../../config/config.php");
+    $id = $_GET['id'];
+    $consulta=("SELECT * FROM `curso` where CURSO_ID = '$id'");
+    if ($resultado = $db->query($consulta)) {
+        /* obtener el array de objetos */
+        while ($fila = $resultado->fetch_array()) {            
+                $rut=$fila['PER_RUT'];
+                $nombre=$fila['CURSO_NOMBRE'];         
+        }
+        /* liberar el conjunto de resultados */
+        $resultado->close();
+    }
+    /* cerrar la conexión */
+    $db->close();
+?>
 
+<body>
     <?php
         include("../../layouts/inter_bar.php");
     ?>
@@ -29,82 +44,49 @@
     <div class="container">
         <?php
             include("../../layouts/inter_left_bar.php");
-        ?>
-        <div class="col-sm-9">
-            
-            <div class="container">
-              <h2>Información</h2>
-              <ul class="nav nav-tabs">
+        ?> 
+        
+        <div class="col-sm-9"> 
+            <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#tab1">Información</a></li>
                 <li><a data-toggle="tab" href="#tab2">Alumnos</a></li>
                 <li><a data-toggle="tab" href="#tab3">Profesores</a></li>
                 <li><a data-toggle="tab" href="#tab4">Asignaturas</a></li>
                 <li><a data-toggle="tab" href="#tab5">Estadisticas</a></li>
                 <li><a data-toggle="tab" href="#tab6">Informe</a></li>
-              </ul>
-
-              <div class="tab-content">
-                <div id="tab1" class="tab-pane fade in active">
-                  <?php        
-                        include("../../config/config.php");
-                        $id = $_GET['id'];
-                        $consulta=("SELECT * FROM `curso` where CURSO_ID = '$id'");
-                        if ($resultado = $db->query($consulta)) {
-                            /* obtener el array de objetos */
-                            while ($fila = $resultado->fetch_array()) {            
-                                    $rut=$fila['PER_RUT'];
-                                    $nombre=$fila['CURSO_NOMBRE']; 
-                                    echo ("<div class=\"col-sm-9 \">
-                                        
-                                            <label>RUT Profesor Jefe: $rut</label><br/>
-
-                                            <label>Nombre: $nombre</label><br/>
-                                            
-                                        </div>");        
-                            }
-                            /* liberar el conjunto de resultados */
-                            $resultado->close();
-                        }
-                        /* cerrar la conexión */
-                        $db->close();
-                    ?>
-                </div>
-<<<<<<< HEAD
-                <div id="tab2" class="tab-pane fade">
-                  <h3>Notas</h3>
-                  <p>Ut enim ad minim veniam, quis nostrudñ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-                <div id="tab3" class="tab-pane fade">
-                  <h3>Menu 2</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-                <div id="tab4" class="tab-pane fade">
-                  <h3>Menu 2</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-                <div id="tab5" class="tab-pane fade">
-                  <h3>Menu 2</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-                <div id="tab6" class="tab-pane fade">
-=======
-
-                <div id="notas" class="tab-pane fade">
-                  <h3>Notas</h3>
-                  <p>Ut enim ad minim veniam, quis nostrudñ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <div id="asistencia" class="tab-pane fade">
->>>>>>> origin/master
-                  <h3>Menu 2</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-
+            </ul>
                 
-              </div>
+            <div class="tab-content">
+                <div id="tab1" class="tab-pane fade in active">  
+                    <br>                
+                    <label>Profesor Jefe: <?php echo $rut?></label><br/>  
+
+                    <label>Nombre Curso: <?php echo $nombre?></label><br/>
+                </div>      
+                
+                <div id="tab2" class="tab-pane fade"> 
+                    
+                </div>
+
+                <div id="tab3" class="tab-pane fade">
+                    
+                </div>
+
+                <div id="tab4" class="tab-pane fade"> 
+                    
+                </div>
+
+                <div id="tab5" class="tab-pane fade">  
+                    
+                </div> 
+
+                <div id="tab6" class="tab-pane fade">  
+                    
+                </div> 
             </div>
         </div>
     </div>
+
     <?php
         include("../../layouts/inter_footer.php");
     ?>
