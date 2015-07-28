@@ -38,6 +38,9 @@
                 <li class="active"><a data-toggle="tab" href="#info">Información</a></li>
                 <li><a data-toggle="tab" href="#notas">Alumnos</a></li>
                 <li><a data-toggle="tab" href="#asistencia">Profesores</a></li>
+                <li class="active"><a data-toggle="tab" href="#info">Asignaturas</a></li>
+                <li><a data-toggle="tab" href="#notas">Estadisticas</a></li>
+                <li><a data-toggle="tab" href="#asistencia">Informe</a></li>
               </ul>
 
               <div class="tab-content">

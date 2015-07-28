@@ -61,7 +61,7 @@
                     <div id="tab1" class="tab-pane fade in active">
                         <div class="col-sm-9">
                             <br>                
-                            <label>RUT: <?php echo $ramo?></label><br/>  
+                            <label>ID: <?php echo $ramo?></label><br/>  
 
                             <label>Nombre: <?php echo $nombre?></label><br/>
 
@@ -77,6 +77,7 @@
                                     <thead>
                                       <tr>
                                         <th>Profesor</th>
+                                        <th>RUT</th>
                                         <th>Funciones</th>
                                       </tr>
                                      </thead>
@@ -85,29 +86,27 @@
                                             <?php
                                                 $consulta2=("SELECT * FROM `imparte` where RAM_ID = $id");
                                                 if ($resultado2 = $db->query($consulta2)) {
-                                                    while ($fila2 = $resultado2->fetch_array()) {   
-                                                            $id_ramo=$fila2['HOR_ID'];         
-                                                            $inicio=$fila2['HOR_INICIO'];
-                                                            $final=$fila2['HOR_FINAL'];
-                                                            $dia=$fila2['HOR_DIA'];  
+                                                    while ($fila2 = $resultado2->fetch_array()) {  
+                                                            $rut=$fila2['PER_RUT']; 
+                                                            $profesor_nombre=apellido_persona($rut);         
                                                             echo "<tr>";
-                                                    echo("<th>$dia</th>");
-                                                    echo("<th>$inicio</th>");
-                                                    echo("<th>$final</th>");                             
-                                                    echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-edit\">
-                                                    </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-remove-circle\">
+                                                    echo("<th>$profesor_nombre</th>");  
+                                                    echo("<th>$rut</th>");                            
+                                                    echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$rut\"><span class=\"glyphicon glyphicon-edit\">
+                                                    </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$rut\"><span class=\"glyphicon glyphicon-remove-circle\">
                                                     </span></a></td>";
                                                     echo "</tr>";    
-                                                    }
-                                                    /* liberar el conjunto de resultados */
-                                                     
+                                                    } 
                                                     $resultado2->close();
                                                 } 
                                             ?>   
                                         </tr>
                                     </tbody>
                                 </table>
+
                                 <?php echo ("<a type=\"button\" href=\"../../view/imparte/add.php?id=$id\" class=\"btn btn-default\">Agregar profesor</a>"); ?>
+                                <?php echo ("<a type=\"button\" href=\"../../view/imparte/add.php?id=$id\" class=\"btn btn-default\">Agregar profesor a la asignatura</a>"); ?>
+
                             </div>
                         </div>
                     </div>
@@ -151,7 +150,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar horario</a>"); ?>
+                                <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar horario a la asignatura</a>"); ?>
                             </div>
                         </div>   
                     </div>
