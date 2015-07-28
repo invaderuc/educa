@@ -35,16 +35,16 @@
             <div class="container">
               <h2>Información</h2>
               <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#info">Información</a></li>
-                <li><a data-toggle="tab" href="#notas">Alumnos</a></li>
-                <li><a data-toggle="tab" href="#asistencia">Profesores</a></li>
-                <li class="active"><a data-toggle="tab" href="#info">Asignaturas</a></li>
-                <li><a data-toggle="tab" href="#notas">Estadisticas</a></li>
-                <li><a data-toggle="tab" href="#asistencia">Informe</a></li>
+                <li class="active"><a data-toggle="tab" href="#tab1">Información</a></li>
+                <li><a data-toggle="tab" href="#tab2">Alumnos</a></li>
+                <li><a data-toggle="tab" href="#tab3">Profesores</a></li>
+                <li><a data-toggle="tab" href="#tab4">Asignaturas</a></li>
+                <li><a data-toggle="tab" href="#tab5">Estadisticas</a></li>
+                <li><a data-toggle="tab" href="#tab6">Informe</a></li>
               </ul>
 
               <div class="tab-content">
-                <div id="info" class="tab-pane fade in active">
+                <div id="tab1" class="tab-pane fade in active">
                   <?php        
                         include("../../config/config.php");
                         $id = $_GET['id'];
@@ -56,8 +56,7 @@
                                     $nombre=$fila['CURSO_NOMBRE']; 
                                     echo ("<div class=\"col-sm-9 \">
                                         
-                                            <label>RUT: $rut</label><br/>
-                                            
+                                            <label>RUT Profesor Jefe: $rut</label><br/>
 
                                             <label>Nombre: $nombre</label><br/>
                                             
@@ -70,11 +69,23 @@
                         $db->close();
                     ?>
                 </div>
-                <div id="notas" class="tab-pane fade">
+                <div id="tab2" class="tab-pane fade">
                   <h3>Notas</h3>
                   <p>Ut enim ad minim veniam, quis nostrudñ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
-                <div id="asistencia" class="tab-pane fade">
+                <div id="tab3" class="tab-pane fade">
+                  <h3>Menu 2</h3>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+                <div id="tab4" class="tab-pane fade">
+                  <h3>Menu 2</h3>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+                <div id="tab5" class="tab-pane fade">
+                  <h3>Menu 2</h3>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+                <div id="tab6" class="tab-pane fade">
                   <h3>Menu 2</h3>
                   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                 </div>

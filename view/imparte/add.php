@@ -31,7 +31,7 @@
             include("../../layouts/inter_left_bar.php");
         ?>
         <div class="col-sm-4 ">
-            <form action="../../controller/libro/add.php" method="post" id="form">
+            <form action="../../controller/imparte/add.php" method="post" id="form">
                 <label>Profesor:</label><br/>
                 <input type = "text" class="form-control" name="inputrut"><br/>
                 

@@ -3,19 +3,13 @@
 	$id = $_POST["inputid"];
 	$nombre = $_POST["inputnombre"];
 	
-	//echo $per_ver_correo;
-
-	//formato fecha americana
-	//$nac=date("Y-m-d",strtotime($per_nac))
-	
-
-	// Hay campos en blanco
 	if($nombre == null ){
 		echo "Faltan campos importantes por completar";
 	}
 	else{
 		$query = ("INSERT INTO ramo (`RAM_NOMBRE`, `CURSO_ID`) VALUES ('$nombre','$id')");
 	  	mysqli_real_query($db,$query);
-	   	header("Location: ../../view/horario/add.php?id=$id");
+	  	$nuevo_id = mysqli_insert_id($db);
+	   	header("Location: ../../view/ramo/view.php?id=$nuevo_id");
 	}
 ?>

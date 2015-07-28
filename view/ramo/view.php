@@ -91,8 +91,7 @@
                                                             echo "<tr>";
                                                     echo("<th>$profesor_nombre</th>");  
                                                     echo("<th>$rut</th>");                            
-                                                    echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$rut\"><span class=\"glyphicon glyphicon-edit\">
-                                                    </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$rut\"><span class=\"glyphicon glyphicon-remove-circle\">
+                                                    echo "<td>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$rut\"><span class=\"glyphicon glyphicon-remove-circle\">
                                                     </span></a></td>";
                                                     echo "</tr>";    
                                                     } 
@@ -141,7 +140,6 @@
                                                     } 
                                                     $resultado3->close();
                                                 } 
-                                                $db->close();
                                             ?>   
                                         </tr>
                                     </tbody>
@@ -152,8 +150,49 @@
                     </div>
 
                     <div id="tab4" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                      <div class="col-sm-9">  
+                            <div class="table-responsive">
+                                <br>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Ramo</th>
+                                            <th>Tipo</th>
+                                            <th>Día</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>                   
+                                            <?php
+                                                $consulta3=("SELECT * FROM `prueba` where RAM_ID = $id");
+                                                if ($resultado3 = $db->query($consulta3)) {
+                                                    while ($fila3 = $resultado3->fetch_array()) {   
+                                                            $id_prueba=$fila3['PRU_ID'];         
+                                                            $id_ramo=$fila3['RAM_ID'];
+                                                            $tipo=$fila3['PRU_TIPO'];
+                                                            $dia=$fila3['PRU_DIA'];
+                                                            $nombre_ramo=nombre_ramo($id_ramo);   
+                                                            echo "<tr>";
+                                                    echo("<th>$id_prueba</th>");
+                                                    echo("<th>$nombre_ramo</th>");
+                                                    echo("<th>$tipo</th>");  
+                                                    echo("<th>$dia</th>");                               
+                                                    echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-edit\">
+                                                    </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-remove-circle\">
+                                                    </span></a></td>";
+                                                    echo "</tr>";    
+                                                    } 
+                                                    $resultado3->close();
+                                                } 
+                                                $db->close();
+                                            ?>   
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar evaluación a la asignatura</a>"); ?>
+                            </div>
+                        </div>   
                     </div>
 
                 </div>
