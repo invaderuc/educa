@@ -58,9 +58,8 @@
 
             <div class="tab-content">
                 <div id="tab1" class="tab-pane fade in active">
-                    <br>
                     <div class="col-sm-9">
-                                        
+                        <br>                
                         <label>RUT: <?php echo $ramo?></label><br/>  
 
                         <label>Nombre: <?php echo $nombre?></label><br/>
@@ -71,54 +70,54 @@
                 </div>
 
                 <div id="tab2" class="tab-pane fade">
-                   <div id="tab3" class="tab-pane fade">
                     <div class="col-sm-9">  
-                    <br>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th>Profesor</th>
-                                <th>Funciones</th>
-                              </tr>
-                             </thead>
+                        <div class="table-responsive">
+                            <br>
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>Profesor</th>
+                                    <th>Funciones</th>
+                                  </tr>
+                                 </thead>
                                 <tbody>
-                            <tr>                   
-                                <?php
-                                    $consulta2=("SELECT * FROM `imparte` where RAM_ID = $id");
-                                    if ($resultado2 = $db->query($consulta2)) {
-                                        while ($fila2 = $resultado2->fetch_array()) {   
-                                                $id_ramo=$fila2['HOR_ID'];         
-                                                $inicio=$fila2['HOR_INICIO'];
-                                                $final=$fila2['HOR_FINAL'];
-                                                $dia=$fila2['HOR_DIA'];  
-                                                echo "<tr>";
-                                        echo("<th>$dia</th>");
-                                        echo("<th>$inicio</th>");
-                                        echo("<th>$final</th>");                             
-                                        echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-edit\">
-                                        </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-remove-circle\">
-                                        </span></a></td>";
-                                        echo "</tr>";    
-                                        }
-                                        /* liberar el conjunto de resultados */
-                                         
-                                        $resultado2->close();
-                                    } 
-                                    $db->close();
-                                ?>   
-                                </tr>
-                            </tbody>
-                        </table>
-            
-                        <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar horario</a>"); ?>
+                                    <tr>                   
+                                        <?php
+                                            $consulta2=("SELECT * FROM `imparte` where RAM_ID = $id");
+                                            if ($resultado2 = $db->query($consulta2)) {
+                                                while ($fila2 = $resultado2->fetch_array()) {   
+                                                        $id_ramo=$fila2['HOR_ID'];         
+                                                        $inicio=$fila2['HOR_INICIO'];
+                                                        $final=$fila2['HOR_FINAL'];
+                                                        $dia=$fila2['HOR_DIA'];  
+                                                        echo "<tr>";
+                                                echo("<th>$dia</th>");
+                                                echo("<th>$inicio</th>");
+                                                echo("<th>$final</th>");                             
+                                                echo "<td>&nbsp;&nbsp;<a href=\"../../view/horario/edit_horario.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-edit\">
+                                                </span></a>&nbsp;&nbsp;<a href=\"../../controller/horario/delete.php?id=$id_ramo\"><span class=\"glyphicon glyphicon-remove-circle\">
+                                                </span></a></td>";
+                                                echo "</tr>";    
+                                                }
+                                                /* liberar el conjunto de resultados */
+                                                 
+                                                $resultado2->close();
+                                            } 
+                                            $db->close();
+                                        ?>   
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <?php echo ("<a type=\"button\" href=\"../../view/horario/add.php?id=$id\" class=\"btn btn-default\">Agregar profesor</a>"); ?>
+                        </div>
                     </div>
                 </div>
 
                 <div id="tab3" class="tab-pane fade">
                     <div class="col-sm-9">  
-                    <br>
+                    
                     <div class="table-responsive">
+                        <br>
                         <table class="table">
                             <thead>
                                 <tr>
